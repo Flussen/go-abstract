@@ -119,7 +119,6 @@ func (repo *abstractRepositoryImpl[T, K]) FindByID(id K) (T, error) {
 	return entity, nil
 }
 
-// FirstByKey implements AbstractRepository.
 func (repo *abstractRepositoryImpl[T, K]) FirstByKey(key, value string) (T, error) {
 	var entity T
 	var preloads []string
@@ -139,7 +138,6 @@ func (repo *abstractRepositoryImpl[T, K]) FirstByKey(key, value string) (T, erro
 	return entity, nil
 }
 
-// FindByKey implements AbstractRepository.
 func (repo *abstractRepositoryImpl[T, K]) FindByKey(key, value string) ([]T, error) {
 	var entities []T
 	var preloads []string
@@ -169,7 +167,6 @@ func (repo *abstractRepositoryImpl[T, K]) Create(tx *gorm.DB, newEntity T) (T, e
 	return newEntity, nil
 }
 
-// Update implements AbstractRepository.
 func (repo *abstractRepositoryImpl[T, K]) Update(tx *gorm.DB, id K, newEntity T) error {
 	entity := createInstance[T]()
 
@@ -198,7 +195,6 @@ func (repo *abstractRepositoryImpl[T, K]) UpdateSpecific(tx *gorm.DB, id K, spec
 	return nil
 }
 
-// Delete implements AbstractRepository.
 func (repo *abstractRepositoryImpl[T, K]) Delete(tx *gorm.DB, id K) error {
 	entity := createInstance[T]()
 
@@ -211,7 +207,6 @@ func (repo *abstractRepositoryImpl[T, K]) Delete(tx *gorm.DB, id K) error {
 	return nil
 }
 
-// Restore implements AbstractRepository.
 func (repo *abstractRepositoryImpl[T, K]) Restore(tx *gorm.DB, id K) error {
 	entity := createInstance[T]()
 
